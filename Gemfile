@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 group :development do
   gem "rubocop", require: false
-  gem "rubocop-rails", require: false
+  gem "rubocop-rails", ">= 2.17.0", require: false
   gem "rubocop-rake", require: false
   gem "rubocop-rspec", require: false
 end
@@ -22,7 +22,7 @@ group :development, :test do
   gem "timecop"
 end
 
-gem "activerecord"
+gem "activerecord", ">= 7.0.7.1"
 gem "bcrypt"
 gem "delayed_job"
 gem "delayed_job_active_record"
@@ -40,7 +40,7 @@ gem "rack-ssl"
 gem "rake"
 gem "sass"
 gem "sinatra"
-gem "sinatra-activerecord"
+gem "sinatra-activerecord", ">= 2.0.26"
 gem "sinatra-contrib"
 gem "sinatra-flash"
 gem "sprockets"
