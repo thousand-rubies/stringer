@@ -1,22 +1,30 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (7.0.4)
-      activesupport (= 7.0.4)
-    activerecord (7.0.4)
-      activemodel (= 7.0.4)
-      activesupport (= 7.0.4)
-    activesupport (7.0.4)
+    activemodel (7.1.3.2)
+      activesupport (= 7.1.3.2)
+    activerecord (7.1.3.2)
+      activemodel (= 7.1.3.2)
+      activesupport (= 7.1.3.2)
+      timeout (>= 0.4.0)
+    activesupport (7.1.3.2)
+      base64
+      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
+      mutex_m
       tzinfo (~> 2.0)
-    addressable (2.8.1)
+    addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
+    base64 (0.2.0)
     bcrypt (3.1.18)
+    bigdecimal (3.1.7)
     byebug (11.1.3)
-    capybara (3.37.1)
+    capybara (3.39.2)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -26,7 +34,8 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     coderay (1.1.3)
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.3)
+    connection_pool (2.4.1)
     coveralls_reborn (0.25.0)
       simplecov (>= 0.18.1, < 0.22.0)
       term-ansicolor (~> 1.6)
@@ -40,43 +49,47 @@ GEM
       delayed_job (>= 3.0, < 5)
     diff-lcs (1.5.0)
     docile (1.4.0)
+    drb (2.2.1)
     execjs (2.8.1)
     faker (2.23.0)
       i18n (>= 1.8.11, < 2)
     feedbag (1.0.0)
       nokogiri (~> 1.8, >= 1.8.2)
-    feedjira (3.2.1)
-      loofah (>= 2.3.1)
-      sax-machine (>= 1.0)
+    feedjira (3.2.3)
+      loofah (>= 2.3.1, < 3)
+      sax-machine (>= 1.0, < 2)
     ffi (1.15.5)
     httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    i18n (1.12.0)
+    i18n (1.14.4)
       concurrent-ruby (~> 1.0)
-    json (2.6.2)
-    loofah (2.19.0)
+    json (2.7.2)
+    language_server-protocol (3.17.0.3)
+    loofah (2.22.0)
       crass (~> 1.0.2)
-      nokogiri (>= 1.5.9)
+      nokogiri (>= 1.12.0)
     matrix (0.4.2)
     method_source (1.0.0)
     mime-types (3.4.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
-    mini_mime (1.1.2)
-    mini_portile2 (2.8.0)
-    minitest (5.16.3)
+    mini_mime (1.1.5)
+    mini_portile2 (2.8.5)
+    minitest (5.22.3)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    mutex_m (0.2.0)
     nio4r (2.5.8)
-    nokogiri (1.13.8)
-      mini_portile2 (~> 2.8.0)
+    nokogiri (1.15.6)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    parallel (1.22.1)
-    parser (3.1.2.1)
+    parallel (1.24.0)
+    parser (3.3.0.5)
       ast (~> 2.4.1)
+      racc
     pg (1.4.3)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -84,18 +97,21 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    public_suffix (5.0.0)
+    public_suffix (5.0.5)
     puma (5.6.5)
       nio4r (~> 2.0)
-    racc (1.6.0)
-    rack (2.2.4)
-    rack-protection (3.0.2)
-      rack
+    racc (1.7.3)
+    rack (3.0.10)
+    rack-protection (4.0.0)
+      base64 (>= 0.1.0)
+      rack (>= 3.0.0, < 4)
+    rack-session (2.0.0)
+      rack (>= 3.0.0)
     rack-ssl (1.4.1)
       rack
-    rack-test (2.0.2)
+    rack-test (2.1.0)
       rack (>= 1.3)
-    racksh (1.0.0)
+    racksh (1.0.1)
       rack (>= 1.0)
       rack-test (>= 0.5)
     rainbow (3.1.1)
@@ -103,8 +119,8 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    regexp_parser (2.6.0)
-    rexml (3.2.5)
+    regexp_parser (2.9.0)
+    rexml (3.2.6)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
       rspec-expectations (~> 3.11.0)
@@ -121,27 +137,29 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.1)
-    rubocop (1.36.0)
+    rubocop (1.62.1)
       json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
-      parser (>= 3.1.2.1)
+      parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.20.1, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.21.0)
-      parser (>= 3.1.1.0)
-    rubocop-rails (2.16.1)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.31.2)
+      parser (>= 3.3.0.4)
+    rubocop-rails (2.24.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
     rubocop-rspec (2.13.2)
       rubocop (~> 1.33)
-    ruby-progressbar (1.11.0)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -157,25 +175,26 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    sinatra (3.0.2)
+    sinatra (4.0.0)
       mustermann (~> 3.0)
-      rack (~> 2.2, >= 2.2.4)
-      rack-protection (= 3.0.2)
+      rack (>= 3.0.0, < 4)
+      rack-protection (= 4.0.0)
+      rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
-    sinatra-activerecord (2.0.25)
+    sinatra-activerecord (2.0.27)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
-    sinatra-contrib (3.0.2)
-      multi_json
+    sinatra-contrib (4.0.0)
+      multi_json (>= 0.0.2)
       mustermann (~> 3.0)
-      rack-protection (= 3.0.2)
-      sinatra (= 3.0.2)
+      rack-protection (= 4.0.0)
+      sinatra (= 4.0.0)
       tilt (~> 2.0)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
-    sprockets (4.1.1)
+    sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
-      rack (> 1, < 3)
+      rack (>= 2.2.4, < 4)
     sprockets-helpers (1.4.0)
       sprockets (>= 2.2)
     sync (0.5.0)
@@ -183,15 +202,16 @@ GEM
       tins (~> 1.0)
     thor (1.2.1)
     thread (0.2.2)
-    tilt (2.0.11)
+    tilt (2.3.0)
     timecop (0.9.5)
+    timeout (0.4.1)
     tins (1.31.1)
       sync
-    tzinfo (2.0.5)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (2.3.0)
+    unicode-display_width (2.5.0)
     will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -202,39 +222,39 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   bcrypt
-  capybara
+  capybara (>= 3.38.0)
   coveralls_reborn
   delayed_job
   delayed_job_active_record
   faker
   feedbag
-  feedjira
+  feedjira (>= 3.2.2)
   httparty
   i18n
-  loofah
-  nokogiri
+  loofah (>= 2.19.1)
+  nokogiri (>= 1.15.6)
   pg
   pry-byebug
   puma
-  rack-protection
+  rack-protection (>= 3.0.3)
   rack-ssl
-  rack-test
-  racksh
+  rack-test (>= 2.1.0)
+  racksh (>= 1.0.1)
   rake
   rspec
   rspec-html-matchers
   rubocop
-  rubocop-rails
+  rubocop-rails (>= 2.17.0)
   rubocop-rake
   rubocop-rspec
   sass
   shotgun
   simplecov
-  sinatra
-  sinatra-activerecord
-  sinatra-contrib
+  sinatra (>= 3.0.3)
+  sinatra-activerecord (>= 2.0.26)
+  sinatra-contrib (>= 3.0.3)
   sinatra-flash
-  sprockets
+  sprockets (>= 4.2.0)
   sprockets-helpers
   thread
   timecop
@@ -242,7 +262,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 3.1.2
+   ruby 2.7.8p225
 
 BUNDLED WITH
-   2.2.33
+   2.1.4
