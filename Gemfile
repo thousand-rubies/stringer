@@ -10,7 +10,7 @@ group :development do
 end
 
 group :development, :test do
-  gem "capybara"
+  gem "capybara", ">= 3.38.0"
   gem "coveralls_reborn", require: false
   gem "faker"
   gem "pry-byebug"
@@ -27,11 +27,11 @@ gem "bcrypt"
 gem "delayed_job"
 gem "delayed_job_active_record"
 gem "feedbag"
-gem "feedjira"
+gem "feedjira", ">= 3.2.2"
 gem "httparty"
 gem "i18n"
-gem "loofah"
-gem "nokogiri"
+gem "loofah", ">= 2.19.1"
+gem "nokogiri", ">= 1.16.5"
 gem "pg"
 gem "puma"
 gem "rack-protection"
