@@ -3,7 +3,7 @@ ruby File.read(ruby_version_file).chomp if File.readable?(ruby_version_file)
 source "https://rubygems.org"
 
 group :development do
-  gem "rubocop", require: false
+  gem "rubocop", ">= 1.37.0", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rake", require: false
   gem "rubocop-rspec", require: false
