@@ -70,7 +70,7 @@ GEM
     multi_xml (0.6.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
-    nio4r (2.5.8)
+    nio4r (2.7.3)
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
@@ -85,7 +85,7 @@ GEM
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
     public_suffix (5.0.0)
-    puma (5.6.5)
+    puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.4)
@@ -215,7 +215,7 @@ DEPENDENCIES
   nokogiri
   pg
   pry-byebug
-  puma
+  puma (>= 5.6.9)
   rack-protection
   rack-ssl
   rack-test
@@ -242,7 +242,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 3.1.2
+   ruby 2.7.8p225
 
 BUNDLED WITH
-   2.2.33
+   2.1.4
