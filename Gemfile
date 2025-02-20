@@ -4,9 +4,9 @@ source "https://rubygems.org"
 
 group :development do
   gem "rubocop", require: false
-  gem "rubocop-rails", require: false
-  gem "rubocop-rake", require: false
-  gem "rubocop-rspec", require: false
+  gem "rubocop-rails", ">= 2.30.0", require: false
+  gem "rubocop-rake", ">= 0.7.0", require: false
+  gem "rubocop-rspec", ">= 3.5.0", require: false
 end
 
 group :development, :test do
@@ -31,7 +31,7 @@ gem "feedjira"
 gem "httparty"
 gem "i18n"
 gem "loofah"
-gem "nokogiri"
+gem "nokogiri", ">= 1.18.3"
 gem "pg"
 gem "puma"
 gem "rack-protection"
