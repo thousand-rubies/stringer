@@ -3,18 +3,18 @@ ruby File.read(ruby_version_file).chomp if File.readable?(ruby_version_file)
 source "https://rubygems.org"
 
 group :development do
-  gem "rubocop", require: false
-  gem "rubocop-rails", require: false
-  gem "rubocop-rake", require: false
-  gem "rubocop-rspec", require: false
+  gem "rubocop", ">= 1.66.0", require: false
+  gem "rubocop-rails", ">= 2.17.0", require: false
+  gem "rubocop-rake", ">= 0.7.0", require: false
+  gem "rubocop-rspec", ">= 2.14.0", require: false
 end
 
 group :development, :test do
-  gem "capybara"
+  gem "capybara", ">= 3.38.0"
   gem "coveralls_reborn", require: false
   gem "faker"
   gem "pry-byebug"
-  gem "rack-test"
+  gem "rack-test", ">= 2.1.0"
   gem "rspec"
   gem "rspec-html-matchers"
   gem "shotgun"
@@ -34,16 +34,16 @@ gem "loofah"
 gem "nokogiri"
 gem "pg"
 gem "puma"
-gem "rack-protection"
-gem "racksh"
+gem "rack-protection", ">= 3.0.3"
+gem "racksh", ">= 1.0.1"
 gem "rack-ssl"
 gem "rake"
 gem "sass"
-gem "sinatra"
-gem "sinatra-activerecord"
-gem "sinatra-contrib"
+gem "sinatra", ">= 3.0.3"
+gem "sinatra-activerecord", ">= 2.0.26"
+gem "sinatra-contrib", ">= 3.0.3"
 gem "sinatra-flash"
-gem "sprockets"
+gem "sprockets", ">= 4.2.0"
 gem "sprockets-helpers"
 gem "thread"
 gem "uglifier"
